@@ -1,0 +1,12 @@
+<form class="form-group">
+    <label for="operandoA">Operando A</label><br>
+      <input type="number" class='form-control' name="operandoA" [(ngModel)]='OperandoA'><br><br>
+      <label for="operandoB">Operando B</label><br>
+      <input type="number" class='form-control' name="operandoB" [(ngModel)]='OperandoB'><br><br>
+      <div class="row">
+        <div class="col"><button class="btn btn-primary" (click)='sumar()'>Sumar</button></div>
+        <div class="col"><button class="btn btn-primary" (click)='restar()'>Restar</button></div>
+        <div class="col"><button class="btn btn-primary" (click)='multiplicar()'>Multiplicar</button></div>
+        <div class="col"><button class="btn btn-primary" (click)='dividir()'>Dividir</button></div>
+      </div>
+</form>
