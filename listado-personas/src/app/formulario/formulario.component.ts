@@ -35,16 +35,18 @@ export class FormularioComponent {
   /*
   VIEW CHILD
   */
- @ViewChild('nombreRef') nombreInput: ElementRef;
- @ViewChild('apellidoRef') apellidoInput: ElementRef;
+  @ViewChild('nombreRef') nombreInput: ElementRef;
+  @ViewChild('apellidoRef') apellidoInput: ElementRef;
 
-  constructor(private loggingService: LoggingService, private personasService: PersonasService){
-
+  constructor(private loggingService: LoggingService, private personasService: PersonasService) {
+    this.personasService.saludar.subscribe(
+      (indice: number) => alert(`El indice es: ${indice}`)
+    );
   }
 
   agregarPersona() {
     let persona1: Persona = new Persona(this.nombreInput.nativeElement.value, this.apellidoInput.nativeElement.value);
-    this.loggingService.enviaMensajeAConsola("Enviamos persona con nombre: "+persona1.nombre+" y apellido:"+persona1.apellido);
+    this.loggingService.enviaMensajeAConsola("Enviamos persona con nombre: " + persona1.nombre + " y apellido:" + persona1.apellido);
     this.personasService.personaAgregada(persona1);
     /* this.personaCreada.emit(persona1); */
   }
