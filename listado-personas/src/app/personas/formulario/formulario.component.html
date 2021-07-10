@@ -1,17 +1,17 @@
-<form class="form-group row">
+<form class="form-group row" #f="ngForm" (ngSubmit)="f.form.valid && onGuardarPersona()">
     <div class="form-group col-md-2">
         <label for="nombre" class="visually-hidden">Nombre</label>
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" [(ngModel)]="nombreInput"
+            required>
         <!-- <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control"
-            [(ngModel)]="nombreInput"> -->
-        <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control"
-            #nombreRef>
+            #nombreRef required> -->
     </div>
     <div class="form-group col-md-2">
         <label for="apellido" class="visually-hidden">Apellido</label>
-        <!-- <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="form-control"
-            [(ngModel)]="apellidoInput"> -->
         <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="form-control"
-            #apellidoRef>
+            [(ngModel)]="apellidoInput" required>
+        <!-- <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="form-control"
+            #apellidoRef required> -->
     </div>
     <div class="col">
         <!-- two binding
@@ -19,6 +19,7 @@
         <!-- templeta reference
         <button type="submit" class="btn btn-primary" (click)="agregarPersona(nombreRef,apellidoRef)">Agregar</button> -->
         <!-- view child -->
-        <button type="submit" class="btn btn-primary" (click)="agregarPersona()">Agregar</button>
+        <button type="submit" class="btn btn-primary" style="cursor: pointer;">+</button>
+        <button *ngIf="index!= null" type="submit" style="cursor: pointer; background-color: red;" (click)="eliminarPersona()" class="btn btn-primary">-</button>
     </div>
 </form>
